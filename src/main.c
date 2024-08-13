@@ -78,7 +78,7 @@ static int handle_cli_args(int argc, char* argv[]) {
 
 int main(int argc, char* argv[]) {
     srand(time(NULL));
-    SLOG_INIT(LOG_FILE_PATH, LV_INFO | LV_ERROR );
+    SLOG_INIT(LOG_FILE_PATH, LV_ALL ^ LV_DEBUG);
 
     SLOG_INFO("Parsing CLI arguments.");
     int millis = handle_cli_args(argc, argv);
@@ -145,6 +145,18 @@ int main(int argc, char* argv[]) {
 
     clear_tui();
     //SLOG_INFO("TUI cleared successfully");
+    
+    // Temporary solution
+    printf(
+            "\033[1m======================\033[0m\n"
+            "\033[1m     GAME RESULTS     \033[0m\n"
+            "\033[1m======================\033[0m\n"
+            "\033[4m\033[1mScore:\033[0m%16d\n"
+            "\033[4m\033[1mApples:\033[0m%15ld\n"
+            "\033[1m======================\033[0m\n",
+            game.score,
+            game.player.len - 1
+        );
     
     return OK;
 }

@@ -19,8 +19,8 @@
 
 #define H_FIELD 18
 #define W_FIELD 32
-#define Y_GWIN  ((LINES - H_FIELD) / 2)
-#define X_GWIN  ((COLS - W_FIELD * 2) / 2)
+#define Y_GWIN  ((LINES - (H_FIELD + 2)) / 2)
+#define X_GWIN  ((COLS - (W_FIELD * 2 +2)) / 2)
 
 #define APPLE       -1
 
